@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogikaShop — Магазин електроніки</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">⚡ <span>Logika</span>Shop</a>
+  <a href="cart.html" class="cart-btn">
+    🛒 Кошик <span class="cart-count" id="cartCount">0</span>
+  </a>
+</nav>
+
+<div class="hero">
+  <h1>Найкраща електроніка для вас</h1>
+  <p>Знайдіть ідеальний гаджет у нашому магазині. Якість, гарантія та швидка доставка!</p>
+  <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+    Перейти до покупок
+  </button>
+</div>
+
+<div class="bg-gray">
+  <div class="section" id="products">
+    <h2 class="section-title">Наші товари</h2>
+
+    <!-- КАТЕГОРІЇ-ТАБИ -->
+    <div class="tabs" id="tabs"></div>
+
+    <!-- СЕКЦІЇ ПО КАТЕГОРІЯХ -->
+    <div id="categorySections"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-emoji" id="mEmoji"></div>
+    <div class="modal-cat" id="mCat"></div>
+    <div class="modal-name" id="mName"></div>
+    <div class="modal-desc" id="mDesc"></div>
+    <div class="modal-price" id="mPrice"></div>
+    <button class="modal-add" id="mAddBtn">🛒 Додати до кошика</button>
+  </div>
+</div>
+
+<footer>
+  <span class="logo">⚡ LogikaShop</span>
+  <p>Ваш надійний магазин електроніки з найкращими цінами та швидкою доставкою.</p>
+  <hr>
+  <p>м. Київ, вул. Технічна, 1</p>
+  <p>+380 44 123 45 67 | info@logikashop.ua</p>
+  <hr>
+  <p class="copy">© 2026 LogikaShop. Всі права захищені. Створено учнями Logika.</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="products.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
