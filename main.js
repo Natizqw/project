@@ -1,12 +1,12 @@
-// ===== СТАН =====
+
 let activeTab = 'Всі';
 
-// ===== ОТРИМАТИ КАТЕГОРІЇ =====
+
 function getCategories() {
   return ['Всі', ...new Set(PRODUCTS.map(p => p.cat))];
 }
 
-// ===== РЕНДЕР ТАБІВ =====
+
 function renderTabs() {
   const el = document.getElementById('tabs');
   el.innerHTML = getCategories().map(c => `
@@ -21,12 +21,11 @@ function setTab(cat) {
   renderTabs();
   renderSections();
 
-  // Плавний скрол до першої секції
   const first = document.querySelector('.cat-section');
   if (first) first.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// ===== РЕНДЕР СЕКЦІЙ ПО КАТЕГОРІЯХ =====
+
 function renderSections() {
   const el = document.getElementById('categorySections');
 
@@ -64,7 +63,7 @@ function renderSections() {
   }).join('');
 }
 
-// ===== МОДАЛЬНЕ ВІКНО =====
+
 function openModal(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return console.error('Product not found for modal:', id);
@@ -85,7 +84,7 @@ function closeModalOutside(e) {
   if (e.target === document.getElementById('modalOverlay')) closeModal();
 }
 
-// ===== КОШИК =====
+
 function addToCart(id) {
   const p = PRODUCTS.find(x => x.id === id);
   if (!p) return console.error('Product not found for cart:', id);
@@ -102,7 +101,7 @@ function addToCart(id) {
   showToast((p.image ? p.name : p.emoji + ' ' + p.name) + ' додано до кошика!');
 }
 
-// ===== TOAST =====
+
 function showToast(msg) {
   const toast = document.getElementById('toast');
   toast.textContent = msg;
@@ -110,7 +109,7 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
-// ===== ІНІЦІАЛІЗАЦІЯ =====
+
 updateNavCartCount();
 renderTabs();
 renderSections();

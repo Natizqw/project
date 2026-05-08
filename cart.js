@@ -46,7 +46,6 @@ function renderCartPage() {
   document.getElementById('summaryTotal').textContent = total.toLocaleString('uk-UA') + ' ₴';
 }
 
-// ===== ЗМІНА КІЛЬКОСТІ =====
 function changeQty(id, delta) {
   const cart = getCart();
   const item = cart.find(x => x.id === id);
@@ -60,7 +59,7 @@ function changeQty(id, delta) {
   renderCartPage();
 }
 
-// ===== ВИДАЛЕННЯ ТОВАРУ =====
+
 function removeItem(id) {
   let cart = getCart();
   cart = cart.filter(x => x.id !== id);
@@ -83,7 +82,6 @@ function checkout() {
   renderCartPage();
 }
 
-// ===== TOAST =====
 function showToast(msg) {
   const toast = document.getElementById('toast');
   toast.textContent = msg;
@@ -91,5 +89,4 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
-// ===== ІНІЦІАЛІЗАЦІЯ =====
 renderCartPage();
